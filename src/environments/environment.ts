@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  registerAPI: 'https://berenial-acadamy.cyclic.app/api/v1/auth/register',
+  loginAPI: 'https://berenial-acadamy.cyclic.app/api/v1/auth/login'
+
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

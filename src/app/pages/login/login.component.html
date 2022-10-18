@@ -1,8 +1,12 @@
-<div class="container">
+<div class="wrapper">
   <app-menu-bar></app-menu-bar>
 
-  <mat-card class="example-card">
-    <div class="login">
+  <mat-card class="container">
+    <div class="login" *ngIf="isLogin">
+      <div class="login-text">
+        <h2 class="text">Enter your Login Credentials below</h2>
+      </div>
+      
       <mat-form-field appearance="outline">
         <mat-label>Enter your email</mat-label>
         <input matInput placeholder="pat@example.com" [formControl]="email" required>
@@ -18,48 +22,27 @@
       <section>
         <div class="example-button-row">
           <!-- <button mat-stroked-button>Basic</button> -->
-          <button mat-stroked-button color="primary">Login</button>
-          <p>Don't have an account <a href="/">Signup</a></p>
+          <button mat-stroked-button color="primary" (click)="login()">Login</button>
+          <p (click)="toggleForm()">Don't have an account <span>Signup</span></p>
         </div>
       </section>
     </div>
 
-    <div class="signup">
-      <button mat-raised-button (click)="isEditable = !isEditable">
+    <div class="signup" *ngIf="!isLogin">
+      <div class="login-text">
+        <h2 class="text">Fill the form below</h2>
+      </div>
+      <!-- <button mat-raised-button (click)="isEditable = !isEditable">
         {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-      </button>
-      
+      </button> -->
+
       <mat-stepper linear #stepper>
         <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
           <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Name</ng-template>
+            <ng-template matStepLabel>First Name</ng-template>
             <mat-form-field appearance="outline">
-              <mat-label>Name</mat-label>
-              <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Fill out your name</ng-template>
-            <mat-form-field appearance="outline">
-              <mat-label>Name</mat-label>
-              <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Fill out your name</ng-template>
-            <mat-form-field appearance="outline">
-              <mat-label>Name</mat-label>
-              <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstCtrl" placeholder="First name" required>
             </mat-form-field>
             <div>
               <button mat-button matStepperNext>Next</button>
@@ -68,10 +51,60 @@
         </mat-step>
         <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
           <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Last Name</ng-template>
             <mat-form-field appearance="outline">
-              <mat-label>Address</mat-label>
-              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="secondCtrl" placeholder="Last name" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Mobile</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile</mat-label>
+              <input matInput type="number" formControlName="thirdCtrl" placeholder="080 1234 5678" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="fourthFormGroup" [editable]="isEditable">
+          <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>Email</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="fourthCtrl" placeholder="yourmail@gmail.com"
+                     required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="fifthFormGroup" [editable]="isEditable">
+          <form [formGroup]="fifthFormGroup">
+            <ng-template matStepLabel>Password</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="fifthCtrl" placeholder="*** ****"
+                     required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="sixtFormGroup" [editable]="isEditable">
+          <form [formGroup]="sixtFormGroup">
+            <ng-template matStepLabel>Confirm Password</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" formControlName="sixtCtrl" placeholder="*** ****"
                      required>
             </mat-form-field>
             <div>
@@ -85,16 +118,15 @@
           <p>You are now done.</p>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-stroked-button mat-button (click)="register()">Signup</button>
           </div>
         </mat-step>
       </mat-stepper>
+      <p (click)="toggleForm()">Already have an account <span>login</span></p>
     </div>
 
     <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
-
-
 </div>
