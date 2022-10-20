@@ -1,0 +1,67 @@
+<marquee class="news">{{news}}</marquee>
+<!-- for menu section-->
+<mat-card>
+  <div class="logo">
+    <h2 class="logo-text">Berenia Academy</h2>
+  </div>
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+</mat-card>
+<!-- end menu section-->
+
+
+<!-- for search section-->
+<mat-card class="search-section">
+  <section>
+    <div >
+      <button mat-button class="button-row">EXPLORE COURSES</button>
+    </div>
+  </section>
+  <div class="search">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label style="color: #cecece;">Search...</mat-label>
+      <input matInput type="text" [(ngModel)]="value">
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+  </div>
+  <section class="sign-in">
+    <div >
+      <button mat-button class="button-row">SIGN IN</button>
+    </div>
+    <div >
+      <button mat-button class="button-row">JOIN FOR FREE</button>
+    </div>
+  </section>
+</mat-card>
+<!-- end search section-->
+
+
+<!-- for Product section-->
+<mat-card class="product-section">
+  <div class="wrapper">
+      <div class="text">
+    <h2>FOR EXCELLENCE AND PRODUCTIVITY</h2>
+  </div>
+  <div class="text-sub">
+    <h3>
+      Join our intensive offline Bootcamp program, starting 10 March, 2022.Grab your opportunity now!!!
+    </h3>
+  </div>
+  <div >
+    <button mat-button class="button-row">ENROLL NOW</button>
+  </div>
+  </div>
+
+  <section class="product">
+    <div >
+      <img src="../../../assets/svgImages/Certification.svg"  height="400" alt="">
+    </div>
+  </section>
+</mat-card>
+<!-- end product section-->

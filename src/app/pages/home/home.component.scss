@@ -1,0 +1,67 @@
+.news{
+  background-color: #f3d747f0;
+  width: 100%;
+  z-index: 100;
+  padding: 10px;
+  font-size: 20px;
+  font-family: cursive;
+}
+mat-card{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.logo{
+  .logo-text{
+    font-family: "Copperplate", Fantasy;
+    color: #551a8b;
+    padding-top: 8px;
+  }
+}
+
+.search-section{
+background-color: #1976d2;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  // background-color: white;
+  border-radius: 5px;
+  color: #f3d747f0;
+}
+input[type=text]{
+    color: #f0f8ff;
+  }
+  .button-row {
+    margin: 8px 8px 8px 0;
+    cursor: pointer;
+    color: #551a8b;
+    background-color: #f0f8ff;
+  }
+  .sign-in{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.product-section{
+  background-image: url('../../../assets/svgImages/scattered-forcefields.svg');
+  .wrapper{
+    width: 40%;
+    h2,h3{
+      font-size: 30px;
+      padding: 8px 20px;
+      
+    }
+    h3{
+      line-height: 1.5;
+      font-family: cursive;
+    }
+
+    .text{
+
+    }
+    .text-sub{
+
+    }
+  }
+}
+
