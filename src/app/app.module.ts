@@ -16,12 +16,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatStepperModule} from '@angular/material/stepper';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatButtonModule,
     MatStepperModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    MatSidenavModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
